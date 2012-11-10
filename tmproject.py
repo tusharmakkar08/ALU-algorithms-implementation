@@ -1,13 +1,45 @@
 print "-----------------------Welcome to ALU unit of TM computer -------------------------"
 while(1):
     cint=0
-    cint=input("Enter 1 for addition , 2 for subtraction , 3 for multiplication , 4 for division , 5 for exit \n");
-    if(cint==5):
+    cint=input("Enter :\n 1 for addition \n 2 for subtraction \n 3 for multiplication \n 4 for division \n 5 for finding GCD \n 6 for exit \n");
+    if(cint==6):
         break
     a=input("Enter 1st positive integer\n")
     b=input("Enter 2nd positive integer\n")
     m=bin(a)[2:].zfill(8)
     n=bin(b)[2:].zfill(8)
+    global m
+    global n
+    def sub(a,b):
+        i=7
+        c=0
+        while (i>=0):
+            l=int(m[i])^int(n[i])^c
+            k.append(str(l))
+            c=(~int(m[i])&int(n[i]))|(int(n[i])&c)|(~int(m[i])&c)
+            print "Difference is ",l,"and borrow is ",c
+            i=i-1
+        print "Final answer is ( in 2's compliment )","".join(k[::-1]),"in binary system and ",(a-b),"in decimal system"
+        if a-b<0:
+            i=7
+            subi=[]
+            while(i>=0):
+                if k[i]=='0':
+                    subi.append('1')
+                if k[i]=='1':
+                    subi.append('0')
+                i=i-1
+            i=7
+            c=0
+            t=[]
+            lol=['0','0','0','0','0','0','0','1']
+            while (i>=0):
+                l=int(subi[i])^int(lol[i])^c
+                t.append(str(l))
+                c=(int(subi[i])&int(lol[i]))|(int(lol[i])&c)|(int(subi[i])&c)
+                i=i-1
+            print "Final answer is -","".join(t[::-1]),"in binary system"
+        print "\n"
     k=[]
     print "CPU stores 1st number as",m
     print "CPU stores 2nd number as",n
@@ -25,35 +57,7 @@ while(1):
     if cint==2:
         print "CPU basically does the addition of a and -b \n"
         print "Implementing using full subtractor\n"
-        i=7
-        c=0
-        while (i>=0):
-            l=int(m[i])^int(n[i])^c
-            k.append(str(l))
-            c=(~int(m[i])&int(n[i]))|(int(n[i])&c)|(~int(m[i])&c)
-            print "Difference is ",l,"and borrow is ",c
-            i=i-1
-        print "Final answer is ( in 2's compliment )","".join(k[::-1]),"in binary system and ",(a-b),"in decimal system"
-        if a-b<0:
-            i=7
-            subi=[]
-            while(i>=0):
-                if k[i]=='0':
-                    subi.append('1')                
-                if k[i]=='1':
-                    subi.append('0')
-                i=i-1
-            i=7
-            c=0
-            t=[]
-            n=['0','0','0','0','0','0','0','1']
-            while (i>=0):
-                l=int(subi[i])^int(n[i])^c
-                t.append(str(l))
-                c=(int(subi[i])&int(n[i]))|(int(n[i])&c)|(int(subi[i])&c)
-                i=i-1
-            print "Final answer is -","".join(t[::-1]),"in binary system"
-        print "\n"
+        sub(a,b)
     if cint==3:
         print "Following Binary multiplication partial product procedure \n"
         i=7
@@ -116,5 +120,23 @@ while(1):
             q=q+div(a-b,b)
             return q
         print "Quotient is ",div(a,b),"and remainder is ",r,"\n"
-        
+    if cint==5:
+        def gcd(a,b):
+            if a==b:
+                print "GCD is",a,"and in binary form it is",bin(a)[2:].zfill(8)
+                return a
+            if a>b:
+                print "Now",a,"is greater than",b
+                sub(a,b)
+                a=a-b
+                b=b
+                gcd(a,b)
+            if b>a:
+                print "Now",b,"is greater than",a
+                sub(b,a)
+                b=b-a
+                a=a
+                gcd(a,b)
+        gcd(a,b)
+        #print "GCD in binary form is",str(bin(int(gcd(a,b))))[2:].zfill(8),"and numerically it is",int(gcd(a,b))
     print "\n--------------------------------------------------------------------------------------\n"
