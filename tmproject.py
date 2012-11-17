@@ -21,7 +21,7 @@ while(1):
                 c=(~int(m[i])&int(n[i]))|(int(n[i])&c)|(~int(m[i])&c)
                 print "Difference is ",l,"and borrow is ",c
                 i=i-1
-            print "Final answer is ( in 2's compliment )","".join(k[::-1]),"in binary system and ",(a-b),"in decimal system"
+            print "Final answer of subtraction is ( in 2's compliment )","".join(k[::-1]),"in binary system and ",(a-b),"in decimal system"
             if a-b<0:
                 i=7
                 subi=[]
