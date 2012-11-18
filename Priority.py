@@ -29,6 +29,7 @@ while(1):
         print "\n"
         print "------------Rotating Daisy Chain Algorithm Implementation----------"
         print "\n"
+        print "Assumption : Instead of using any arbitration module , The initial priority is assumed to be same as that of Static Daisy Chain Priority Algorithm \n\n"
         b=input("Enter number of Processors\n")
         print "Processors are numbered from 1 to",b
         print "\n"
@@ -40,9 +41,7 @@ while(1):
             mo=i
             if i>b:
                 mo=i-b
-            print "Process -",i,"goes to processor -",mo
-            print "\n"
-            print "priority of processors is"
+            print "priority of processors for the next process is"
             j=0
             j=j+i
             if j>b+1:
@@ -54,4 +53,6 @@ while(1):
                     j=j-b
                 print j
                 j=j+1
-            print "\n\n"
+            print 
+            print "Process -",i,"goes to processor -",mo
+            print "\n\n\n"
