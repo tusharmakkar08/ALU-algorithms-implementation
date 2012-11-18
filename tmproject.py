@@ -102,7 +102,7 @@ while(1):
             n=bin(b)[2:].zfill(8)
             print "CPU stores 1st number as",m
             print "CPU stores 2nd number as",n
-            print "First implementing 2 fast division approaches\n\n"
+            print "Implementing 2 fast division approaches\n\n"
             print "1 . Using Newton Raphson division algorithm \n"
             import mpmath
             from math import log
