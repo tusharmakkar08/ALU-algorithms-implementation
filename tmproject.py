@@ -46,12 +46,12 @@ while(1):
         if cint==1:
             a=input("Enter 1st positive integer\n")
             b=input("Enter 2nd positive integer\n")
-            m=bin(a)[2:].zfill(8)
-            n=bin(b)[2:].zfill(8)
+            m=bin(a)[2:].zfill(10)
+            n=bin(b)[2:].zfill(10)
             print "CPU stores 1st number as",m
             print "CPU stores 2nd number as",n
             print "Implementing using full adder"
-            i=7
+            i=9
             c=0
             while (i>=0):
                 l=int(m[i])^int(n[i])^c
@@ -198,7 +198,7 @@ while(1):
             n=bin(b)[2:].zfill(8)
             print "CPU stores 1st number as",m
             print "CPU stores 2nd number as",n
-            i=7
+            i=8
             addi=[]
             while i>=0:
                 add=int(m[i])|int(n[i])
