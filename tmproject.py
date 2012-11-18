@@ -102,31 +102,8 @@ while(1):
             n=bin(b)[2:].zfill(8)
             print "CPU stores 1st number as",m
             print "CPU stores 2nd number as",n
-            print "Implementing 2 fast division approaches\n\n"
-            print "1 . Using Newton Raphson division algorithm \n"
-            import mpmath
-            from math import log
-            START_PREC = 15
-            def size(x):
-                if isinstance(x, (int, long)):
-                    return int(log(x,2))
-                return x.numdigits(2)
-            def newdiv(p, q):
-                szp = size(p)
-                szq = size(q)
-                szr = szp - szq
-                if min(szp, szq, szr) < 2*START_PREC:
-                    return p//q
-                r = (1 << (2*START_PREC)) // (q >> (szq - START_PREC))
-                last_prec = START_PREC
-                for prec in giant_steps(START_PREC, szr):
-                    a = lshift(r, prec-last_prec+1)
-                    b = rshift(r**2 * rshift(q, szq-prec), 2*last_prec)
-                    r = a - b
-                    last_prec = prec
-                return ((p >> szq) * r) >> szr
-            print "Final answer is quotient",bin(newdiv(a,b))[2:].zfill(8)," and remainder in binary form is",bin(a%b)[2:].zfill(8),"\nquotient in decimal form is ",a/b," and ",a%b," is remainder in decimal form\n"
-            print "\n\n2 . Following recursive approach "
+            print "Implementing fast division approach\n\n"
+            print " Following recursive approach \n"
             def div(a,b):
                 q=1
                 global r
@@ -143,7 +120,7 @@ while(1):
                 q=q>>1
                 q=q+div(a-b,b)
                 return q
-            print "Quotient is ",div(a,b),"and remainder is ",r,"\n"
+            print "Quotient is ",bin(div(a,b))[2:].zfill(8),"in binary form and",div(a,b),"in decimal form \n Remainder is ",bin(r)[2:].zfill(8),"in binary form and ",r,"in decimal form\n"
         if cint==5:
             a=input("Enter 1st positive integer\n")
             b=input("Enter 2nd positive integer\n")
