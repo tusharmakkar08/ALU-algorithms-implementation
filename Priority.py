@@ -1,7 +1,7 @@
 while(1):
-    print "------------Implementation of Priority Algorithms----------------"
+    print "------------Implementation of Priority Algorithms for Bus Arbitration----------------"
     print "\n"
-    print "Assumption : There is no parallelism in between the processes\n"
+    print "Assumption : There is no parallelism in between the processes and all the processors are requesting use of the bus\n"
     a=input("Enter your choice :\n1- Static Priority Algorithm\n2- Dynamic Priority Algorithm\n3- To exit\n")
     if a not in range(1,4):
         print "\nInvalid Option\n"
@@ -33,7 +33,7 @@ while(1):
         b=input("Enter number of Processors\n")
         print "Processors are numbered from 1 to",b
         print "\n"
-        print "The Priority is based on the LRU mechanism i.e. Least recently used device will get maximum priority or in other words Once one processor is used\n"
+        print "This Priority is based on the LRU mechanism i.e. Least recently used device will get maximum priority or in other words Once one processor is used\n"
         c=input("Enter number of parallel processes you want to have ?\n")
         print "\n"
         print "--------------------------------------------------------------------------"
